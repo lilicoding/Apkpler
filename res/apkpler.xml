@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<framework>
+	<plugins>
+		<!-- IN-FRAMEWORK -->
+		<plugin cls="soot.jimple.infoflow.apkpler.transformer.PrintTransformer" path="IN-FRAMEWORK" />
+	</plugins>
+</framework>
