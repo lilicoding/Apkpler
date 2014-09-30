@@ -33,8 +33,9 @@ public class ConfigParser
 				Element plugin = iter.next();
 				String cls = plugin.getAttributeValue(ATT_CLS);
 				String path = plugin.getAttributeValue(ATT_PATH);
+				String input = plugin.getText().trim();
 				
-				Plugin p = new Plugin(cls, path);
+				Plugin p = new Plugin(cls, path, input);
 				addPlugin(p);
 			}
 		}

@@ -40,7 +40,7 @@ public class SootLauncher extends SceneTransformer
 		G.reset();
 		
 		Options.v().set_src_prec(Options.src_prec_apk);
-		Options.v().set_output_format(Options.output_format_none);
+		Options.v().set_output_format(Options.output_format_dex);
 		
         PackManager.v().getPack("wjtp").add(new Transform("wjtp.apkpler", new SootLauncher(transformer)));
 		

@@ -1,7 +1,15 @@
 <?xml version="1.0"?>
+<!-- 
+
+IN-FRAMEWORK means that plugin is implemented inside the framework. 
+
+-->
+
 <framework>
 	<plugins>
-		<!-- IN-FRAMEWORK -->
-		<plugin cls="soot.jimple.infoflow.apkpler.transformer.PrintTransformer" path="IN-FRAMEWORK" />
+		<plugin cls="soot.jimple.apkpler.framework.plugin.JimpleIndexNumberTransformer" path="IN-FRAMEWORK" />
+		<plugin cls="soot.jimple.apkpler.framework.plugin.PrintTransformer" path="IN-FRAMEWORK">
+			Input----------
+		</plugin>
 	</plugins>
 </framework>

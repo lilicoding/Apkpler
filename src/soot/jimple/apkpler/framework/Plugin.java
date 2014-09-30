@@ -6,11 +6,13 @@ public class Plugin
 	
 	private String cls;
 	private String path;
+	private String input;
 	
-	public Plugin(String cls, String path)
+	public Plugin(String cls, String path, String input)
 	{
 		this.cls = cls;
 		this.path = path;
+		this.input = input;
 	}
 
 	public String getCls() {
@@ -27,6 +29,14 @@ public class Plugin
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public String getInput() {
+		return input;
+	}
+
+	public void setInput(String input) {
+		this.input = input;
 	}
 
 	@Override

@@ -7,7 +7,7 @@ public class Main
 {
 	/**
 	 * args[0] = apkPath
-	 * args[1] = androidJars
+	 * args[1] = androidJars, e.g., https://github.com/Sable/android-platforms.git
 	 */
 	public static void main(String[] args)
 	{
