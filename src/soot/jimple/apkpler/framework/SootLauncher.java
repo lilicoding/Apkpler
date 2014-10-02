@@ -65,7 +65,7 @@ public class SootLauncher extends SceneTransformer
 				}
 				catch (Exception ex)
 				{
-					System.out.println("EXCEPTION: cannot retrieve active body for method " + sm);
+					//System.out.println("EXCEPTION: cannot retrieve active body for method " + sm);
 				}
 			}
 		}
@@ -79,6 +79,7 @@ public class SootLauncher extends SceneTransformer
 		
 		for (IPlugin plugin : plugins)
 		{
+			System.out.println("[Apkpler] start to launch " + plugin.getName());
 			runPlugin(plugin);
 		}
 	}

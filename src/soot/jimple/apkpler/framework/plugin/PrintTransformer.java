@@ -6,6 +6,11 @@ import soot.jimple.apkpler.interf.DefaultPlugin;
 public class PrintTransformer extends DefaultPlugin 
 {
 
+	public PrintTransformer(String name) 
+	{
+		super(name);
+	}
+
 	@Override
 	public void bodyTransform(Body body) 
 	{

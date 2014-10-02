@@ -1,11 +1,13 @@
 package soot.jimple.apkpler.framework;
 
 import java.io.File;
+import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import soot.jimple.apkpler.interf.IPlugin;
+import soot.jimple.apkpler.util.StringUtil;
 
 public class ApkplerTransformer
 {
@@ -37,7 +39,33 @@ public class ApkplerTransformer
 					clazz = jarLoader.loadClass(plugin.getCls());
 				}
 				
-				IPlugin ip = (IPlugin) clazz.newInstance();
+				IPlugin ip = null;
+				if (StringUtil.isEmpty(plugin.getInput()))
+				{
+					Class<?>[] pType = new Class[] {
+						Class.forName("java.lang.String")
+					};
+					Object[] pObj = new Object[] {
+						plugin.getCls()
+					};
+					
+					Constructor<?> constructor = clazz.getConstructor(pType);
+					ip = (IPlugin) constructor.newInstance(pObj);
+				}
+				else
+				{
+					Class<?>[] pType = new Class[] {
+						Class.forName("java.lang.String"),
+						Class.forName("java.lang.String")
+					};
+					Object[] pObj = new Object[] {
+						plugin.getCls(),
+						plugin.getInput()
+					};
+					
+					Constructor<?> constructor = clazz.getConstructor(pType);
+					ip = (IPlugin) constructor.newInstance(pObj);
+				}
 				addPlugin(ip);
 				
 				jarLoader.close();
@@ -45,6 +73,7 @@ public class ApkplerTransformer
 			catch (Exception ex)
 			{
 				System.out.println("EXCEPTION:" + plugin);
+				ex.printStackTrace();
 			}
 			
 		}

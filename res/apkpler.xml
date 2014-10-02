@@ -8,8 +8,9 @@ IN-FRAMEWORK means that plugin is implemented inside the framework.
 <framework>
 	<plugins>
 		<plugin cls="soot.jimple.apkpler.framework.plugin.JimpleIndexNumberTransformer" path="IN-FRAMEWORK" />
-		<plugin cls="soot.jimple.apkpler.framework.plugin.PrintTransformer" path="IN-FRAMEWORK">
-			Input----------
+		<plugin cls="soot.jimple.apkpler.framework.plugin.PrintTransformer" path="IN-FRAMEWORK" />
+		<plugin cls="soot.jimple.apkpler.plugin.rdc.RenameDuplicatedClassPlugin" path="libs/apkpler-plugin-rdc.jar">
+			a.b.c.D
 		</plugin>
 	</plugins>
 </framework>

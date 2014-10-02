@@ -6,6 +6,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/soot"/>
 	<classpathentry kind="lib" path="libs/jdom-2.0.5.jar"/>
 	<classpathentry kind="lib" path="libs/junit.jar"/>
-	<classpathentry kind="lib" path="libs/apkpler-interface.jar"/>
+	<classpathentry kind="lib" path="libs/apkpler-plugin-rdc.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Apkpler-Interface"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
