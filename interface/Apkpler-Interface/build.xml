@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<project default="archive">
+	
+	<property name="src.dir" location="src"></property>
+	<property name="test.dir" location="test"></property>
+	<property name="libs.dir" location="libs"></property>
+	
+	<property name="build.dir" location="build"></property>
+	<property name="build.classes" location="${build.dir}/classes"></property>
+	<property name="build.test.classes" location="${build.dir}/test/classes"></property>
+	
+	<property name="project.name" value="apkpler-interface"></property>
+	
+	<path id="compile-path">
+		<fileset dir="${libs.dir}" includes="**/*.jar"></fileset>
+	</path>
+	
+	<path id="test-compile-path">
+		<path refid="compile-path"></path>
+		<pathelement location="${build.classes}"/>
+	</path>
+	
+	<path id="test-run-path">
+		<path refid="test-compile-path"></path>
+		<pathelement location="${build.dir}/test/classes"/>
+	</path>
+	
+	<target name="clean">
+		<delete dir="${build.dir}"></delete>
+	</target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.classes}"/>
+		<mkdir dir="${build.test.classes}"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${src.dir}" destdir="${build.classes}" classpathref="compile-path" includeantruntime="true">
+			<compilerarg value="-Xlint:unchecked"/>
+		</javac>
+	</target>
+	
+	<target name="jar" depends="compile">
+	    <jar destfile="${libs.dir}/${project.name}.jar" basedir="${build.classes}" />
+	</target>
+	
+	<target name="archive" depends="jar">
+		<delete dir="${build.dir}"></delete>
+	</target>
+	
+</project>
+	
