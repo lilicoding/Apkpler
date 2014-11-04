@@ -1,0 +1,15 @@
+<apkpler-plugin-readme>
+	<name abbreviation="icc">Inter-Component Communication</name>
+	<description>
+		For an Android app, component is its basic building block and a lot of 
+		its functionalities are implemented through communication between components.
+		However, at the moment, a lot of existing Android analysis tools such as FlowDroid, 
+		LeakMiner or AndroidLeaks are not able to perform inter-component communication (ICC) based analysis and 
+		this results in inadequate analysis and thereby yields unsound results.
+		
+		Thus, this plugin is dedicated to solve the ICC problem in which it replaces all ICCs to 
+		intra-component communication through explicitly using real code to connect components.
+		More specifically, we use Java-style communication mechanism (new-class) to replace all Android-style communication mechanism. 
+	</description>
+	<apk-executable>FALSE</apk-executable>
+</apkpler-plugin-readme>
