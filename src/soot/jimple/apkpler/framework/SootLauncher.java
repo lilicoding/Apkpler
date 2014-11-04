@@ -16,8 +16,10 @@ import soot.options.Options;
 import soot.util.Chain;
 
 public class SootLauncher extends SceneTransformer
-{
+{	
 	private ApkplerTransformer transformer = new ApkplerTransformer();
+	
+	
 	
 	public SootLauncher(ApkplerTransformer transformer)
 	{

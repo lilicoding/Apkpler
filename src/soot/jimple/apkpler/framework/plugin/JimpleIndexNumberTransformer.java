@@ -16,9 +16,9 @@ import soot.util.Chain;
 
 public class JimpleIndexNumberTransformer extends DefaultPlugin
 {
-	public JimpleIndexNumberTransformer(String name) 
+	public JimpleIndexNumberTransformer(String appPath, String name) 
 	{
-		super(name);
+		super(appPath, name);
 	}
 
 	@Override

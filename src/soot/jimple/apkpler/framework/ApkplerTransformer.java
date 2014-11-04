@@ -12,13 +12,14 @@ import soot.jimple.apkpler.util.StringUtil;
 public class ApkplerTransformer
 {
 	List<IPlugin> transformers = new ArrayList<IPlugin>();
+	String appPath = "";
 	
 	public ApkplerTransformer()
 	{
 		
 	}
 	
-	public ApkplerTransformer(List<Plugin> plugins)
+	public ApkplerTransformer(List<Plugin> plugins, String appPath)
 	{
 		for (Plugin plugin : plugins)
 		{
@@ -43,9 +44,11 @@ public class ApkplerTransformer
 				if (StringUtil.isEmpty(plugin.getInput()))
 				{
 					Class<?>[] pType = new Class[] {
+						Class.forName("java.lang.String"),
 						Class.forName("java.lang.String")
 					};
 					Object[] pObj = new Object[] {
+						appPath,
 						plugin.getCls()
 					};
 					
@@ -56,9 +59,11 @@ public class ApkplerTransformer
 				{
 					Class<?>[] pType = new Class[] {
 						Class.forName("java.lang.String"),
+						Class.forName("java.lang.String"),
 						Class.forName("java.lang.String")
 					};
 					Object[] pObj = new Object[] {
+						appPath,
 						plugin.getCls(),
 						plugin.getInput()
 					};

@@ -6,9 +6,9 @@ import soot.jimple.apkpler.interf.DefaultPlugin;
 public class PrintTransformer extends DefaultPlugin 
 {
 
-	public PrintTransformer(String name) 
+	public PrintTransformer(String appPath, String name) 
 	{
-		super(name);
+		super(appPath, name);
 	}
 
 	@Override

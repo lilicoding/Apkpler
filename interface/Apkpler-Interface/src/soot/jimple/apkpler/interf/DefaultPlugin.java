@@ -4,16 +4,18 @@ import soot.Body;
 
 public class DefaultPlugin implements IPlugin
 {
+	protected String appPath;
 	protected String name;
 	protected String input;
 	
-	public DefaultPlugin(String name)
+	public DefaultPlugin(String appPath, String name)
 	{
-		this.name = name;
+		this(appPath, name, "");
 	}
 	
-	public DefaultPlugin(String name, String input)
+	public DefaultPlugin(String appPath, String name, String input)
 	{
+		this.appPath = appPath;
 		this.name = name;
 		this.input = input;
 	}

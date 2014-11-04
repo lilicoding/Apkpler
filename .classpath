@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="libs/junit.jar"/>
 	<classpathentry kind="lib" path="libs/apkpler-plugin-rdc.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Apkpler-Interface"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Apkpler-Plugin-InterComponentCommunication"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
