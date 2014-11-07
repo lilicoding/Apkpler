@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="libs/apkpler-plugin-rdc.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Apkpler-Interface"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Apkpler-Plugin-InterComponentCommunication"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Apkpler-Plugin-AppInfoStatistic"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
