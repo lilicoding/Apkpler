@@ -35,6 +35,6 @@ public class Main
 		
 		long endTime = System.currentTimeMillis();
 		OutputUtil.println("End Time:" + endTime);
-		OutputUtil.print("====>" + TimeUtil.computeTimeDifferenceInSeconds(startTime, endTime));
+		System.out.println("====>" + TimeUtil.computeTimeDifferenceInSeconds(startTime, endTime) + "s");
 	}
 }
