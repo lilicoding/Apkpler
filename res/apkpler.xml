@@ -2,18 +2,54 @@
 <!-- 
 
 IN-FRAMEWORK means that plugin is implemented inside the framework. 
+or is implemented by an independent project but is directly referenced by Apkpler-Framework
 
 -->
 
 <framework>
 	<plugins>
-		 
+		<!--  
+		<plugin cls="soot.jimple.apkpler.framework.plugin.PrintTransformer" path="IN-FRAMEWORK" />
+		-->
+		
+		<!--  
+		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
+			cp1.txt
+		</plugin>
+		
 		<plugin cls="soot.jimple.apkpler.plugin.ais.AppInfoStatisticPlugin" path="IN-FRAMEWORK">
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
+			cp2.txt
 		</plugin>
 		
 		<plugin cls="soot.jimple.apkpler.plugin.icc.InterComponentCommunicationPlugin" path="IN-FRAMEWORK">
 			res/IPCMethodsConfigFile.txt:res/ICCLinksConfigFile.txt
 		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
+			cp3.txt
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.framework.plugin.CheckPointAnalysisPlugin" path="IN-FRAMEWORK">
+			cp1.txt:cp2.txt:cp3.txt
+		</plugin>
+		
+		-->
+		
+		<!--  
+		<plugin cls="soot.jimple.apkpler.plugin.icc.InterComponentCommunicationPlugin" path="IN-FRAMEWORK">
+			res/IPCMethodsConfigFile.txt:res/ICCLinksConfigFile.txt
+		</plugin>
+		-->
+		
+		<!--
+		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
+			yyy.txt
+		</plugin>
+		-->
+		
 		<!-- 
 		<plugin cls="soot.jimple.apkpler.framework.plugin.PrintTransformer" path="IN-FRAMEWORK" />
 		<plugin cls="soot.jimple.apkpler.framework.plugin.JimpleIndexNumberTransformer" path="IN-FRAMEWORK" />
