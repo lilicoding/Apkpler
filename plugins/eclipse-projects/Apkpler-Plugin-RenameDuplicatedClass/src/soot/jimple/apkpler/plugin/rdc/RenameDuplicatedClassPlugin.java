@@ -40,13 +40,13 @@ public class RenameDuplicatedClassPlugin extends DefaultPlugin
 {
 	private static final String FIXED_CLASS_NAME_SPERATOR = "-";
 	
-	public RenameDuplicatedClassPlugin(String name) 
+	public RenameDuplicatedClassPlugin(String appPath, String name) 
 	{
-		super(name);
+		super(appPath, name);
 	}
 	
-	public RenameDuplicatedClassPlugin(String name, String input) {
-		super(name, input);
+	public RenameDuplicatedClassPlugin(String appPath, String name, String input) {
+		super(appPath, name, input);
 	}
 
 	@Override
