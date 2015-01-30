@@ -9,7 +9,7 @@ import java.util.HashMap;
  */
 public class SharedReferences 
 {
-	public static HashMap<String, String> refs = new HashMap<String, String>();
+	public static HashMap<String, Object> refs = new HashMap<String, Object>();
 	
 	public boolean exist(String key)
 	{

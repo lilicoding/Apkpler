@@ -31,7 +31,11 @@ public class SootHelper
 	{
 		SootClass sc = new SootClass(clsName);
 		sc.setSuperclass(Scene.v().getSootClass("java.lang.Object"));
-        Scene.v().addClass(sc);
+		
+		sc.setApplicationClass();
+		sc.setPhantom(false);
+		sc.setInScene(true);
+       
 		return sc;
 	}
 	
@@ -81,6 +85,16 @@ public class SootHelper
 		PatchingChain<Unit> units = b.getUnits();
 		
 		units.insertBefore(insertedUnit, originUnit);
+	}
+	
+	public static Unit insertAfter(SootMethod sootMethod, Unit insertedUnit, Unit originUnit)
+	{
+		Body b = sootMethod.retrieveActiveBody();
+		PatchingChain<Unit> units = b.getUnits();
+		
+		units.insertAfter(insertedUnit, originUnit);
+		
+		return insertedUnit;
 	}
 	
 	public static Stmt getFirstNonIdentityStmt(SootMethod sootMethod)
