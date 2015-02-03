@@ -1,0 +1,8 @@
+<meta-data>
+  <class-remove>
+    com.geinimi.R
+  </class-remove>
+  <class-add>
+    com.geinimi.R0
+  </class-add>
+</meta-data>

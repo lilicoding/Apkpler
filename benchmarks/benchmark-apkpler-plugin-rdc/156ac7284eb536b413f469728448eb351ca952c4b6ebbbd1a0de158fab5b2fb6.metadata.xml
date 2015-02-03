@@ -1,0 +1,8 @@
+<meta-data>
+  <class-remove>
+    jp.co.kaku.spi.fs1006.Paid.activity.C:jp.co.kaku.spi.fs1006.Paid.activity.a:jp.co.kaku.spi.fs1006.Paid.activity.b
+  </class-remove>
+  <class-add>
+    jp.co.kaku.spi.fs1006.Paid.activity.C0:jp.co.kaku.spi.fs1006.Paid.activity.a1:jp.co.kaku.spi.fs1006.Paid.activity.b2
+  </class-add>
+</meta-data>

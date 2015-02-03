@@ -8,6 +8,22 @@ or is implemented by an independent project but is directly referenced by Apkple
 
 <framework>
 	<plugins>
+		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
+			cp1.txt
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.plugin.rdc.RenameDuplicatedClassPlugin" path="libs/apkpler-plugin-rdc.jar">
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
+			cp3.txt
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.framework.plugin.CheckPointAnalysisPlugin" path="IN-FRAMEWORK">
+			cp1.txt:cp2.txt
+		</plugin>
+	</plugins>
+</framework>		
 		<!--  
 		<plugin cls="soot.jimple.apkpler.framework.plugin.PrintTransformer" path="IN-FRAMEWORK" />
 		-->
@@ -61,5 +77,3 @@ or is implemented by an independent project but is directly referenced by Apkple
 			res/IPCMethodsConfigFile.txt:res/ICCLinksConfigFile.txt
 		</plugin>
 		-->
-	</plugins>
-</framework>

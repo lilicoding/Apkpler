@@ -1,0 +1,8 @@
+<meta-data>
+  <class-remove>
+    com.adwo.adsdk.b:com.adwo.adsdk.a:com.adwo.adsdk.J:com.adwo.adsdk.L:com.adwo.adsdk.N:com.adwo.adsdk.c:com.adwo.adsdk.d:com.adwo.adsdk.e:com.adwo.adsdk.f:com.adwo.adsdk.g:com.adwo.adsdk.h:com.adwo.adsdk.i:com.adwo.adsdk.k:com.adwo.adsdk.m:com.adwo.adsdk.o:com.adwo.adsdk.p:com.adwo.adsdk.q:com.adwo.adsdk.r:com.adwo.adsdk.s:com.adwo.adsdk.t:com.adwo.adsdk.u:com.adwo.adsdk.v:com.adwo.adsdk.w:com.adwo.adsdk.x:com.adwo.adsdk.y
+  </class-remove>
+  <class-add>
+    com.adwo.adsdk.b0:com.adwo.adsdk.a1:com.adwo.adsdk.J2:com.adwo.adsdk.L3:com.adwo.adsdk.N4:com.adwo.adsdk.c5:com.adwo.adsdk.d6:com.adwo.adsdk.e7:com.adwo.adsdk.f8:com.adwo.adsdk.g9:com.adwo.adsdk.h10:com.adwo.adsdk.i11:com.adwo.adsdk.k12:com.adwo.adsdk.m13:com.adwo.adsdk.o14:com.adwo.adsdk.p15:com.adwo.adsdk.q16:com.adwo.adsdk.r17:com.adwo.adsdk.s18:com.adwo.adsdk.t19:com.adwo.adsdk.u20:com.adwo.adsdk.v21:com.adwo.adsdk.w22:com.adwo.adsdk.x23:com.adwo.adsdk.y24
+  </class-add>
+</meta-data>
