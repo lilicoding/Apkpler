@@ -1,0 +1,14 @@
+<apkpler-plugin-readme>
+	<name abbreviation="rdc">Rename Duplicated Class</name>
+	<description>
+		Because some file systems are case-insensitive (e.g., Mac OS).
+		When file a.b.c.class exists, a.b.C.class will over-write the content of a.b.c.class and 
+		case inconsistent that a.b.c.class file contains the content of a.b.C.class.
+		However, in some case, at lest in Android applications, the duplicated class names exist.
+		For example, an app (Sha256: 0015AE7C27688D45F79170DCEA16131CE557912A1A0C5F3B6B0465EE0774A452) in 
+		the Genome project contains duplicated class names.
+		When transforming the app to classes, some classes are missing and consequently case problems for 
+		other analysis tools that relay on Soot 
+		(e.g., Error: class com.adwo.adsdk.s read in from a classfile in which com.adwo.adsdk.S was expected).
+	</description>
+</apkpler-plugin-readme>
