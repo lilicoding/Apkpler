@@ -16,10 +16,10 @@ or is implemented by an independent project but is directly referenced by Apkple
 		</plugin>
 		
 		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
-			cp3.txt
+			cp2.txt
 		</plugin>
 		
-		<plugin cls="soot.jimple.apkpler.framework.plugin.CheckPointAnalysisPlugin" path="IN-FRAMEWORK">
+		<plugin cls="soot.jimple.apkpler.plugin.cpa4rdc.CheckPointAnalysis4RDCPlugin" path="libs/apkpler-plugin-cpa4rdc.jar">
 			cp1.txt:cp2.txt
 		</plugin>
 	</plugins>

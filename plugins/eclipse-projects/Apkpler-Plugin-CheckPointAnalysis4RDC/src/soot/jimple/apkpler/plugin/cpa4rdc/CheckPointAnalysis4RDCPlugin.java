@@ -38,19 +38,20 @@ public class CheckPointAnalysis4RDCPlugin extends DefaultPlugin
 		if (input.contains(":"))
 		{
 			String[] paths = input.split(":");
-			if (3 != paths.length)
+			if (2 != paths.length)
 			{
-				throw new RuntimeException("wrong input args.");
+				throw new RuntimeException("wrong input args. [" + input + "]");
 			}
 			
-			metaDataPath = paths[0];
-			checkPointPath1 = paths[1];
-			checkPointPath2 = paths[2];
+			checkPointPath1 = paths[0];
+			checkPointPath2 = paths[1];
 		}
 		else
 		{
-			throw new RuntimeException("wrong input args.");
+			throw new RuntimeException("wrong input args. [" + input + "]");
 		}
+		
+		metaDataPath = this.appPath.replace(".apk", ".metadata.xml");
 		
 		removedClasses = new HashSet<String>();
 		addedClasses = new HashSet<String>();

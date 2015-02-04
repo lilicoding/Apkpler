@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<framework>
+	<plugins>
+		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
+			cp1.txt
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.plugin.rdc.RenameDuplicatedClassPlugin" path="libs/apkpler-plugin-rdc.jar">
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
+			cp2.txt
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.plugin.cpa4rdc.CheckPointAnalysis4RDCPlugin" path="libs/apkpler-plugin-cpa4rdc.jar">
+			cp1.txt:cp2.txt
+		</plugin>
+	</plugins>
+</framework>
