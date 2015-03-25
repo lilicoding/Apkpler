@@ -59,7 +59,7 @@ public class ICCDummyMainCreator
     			Modifier.PUBLIC);// | Modifier.STATIC);    //no need be static
     	JimpleBody body = Jimple.v().newBody(mainMethod);
     	mainMethod.setActiveBody(body);
-    	mainMethod.setPhantom(false);
+    	//mainMethod.setPhantom(false);
     	
     	SootClass compSootClass = Scene.v().getSootClass(sootClassName);
     	

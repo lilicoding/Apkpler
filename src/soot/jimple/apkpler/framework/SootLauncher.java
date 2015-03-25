@@ -36,7 +36,24 @@ public class SootLauncher extends SceneTransformer
             "-pp",
             "-allow-phantom-refs",
             "-w",
-			"-p", "cg", "enabled:true"
+			"-p", "cg", "enabled:true",
+			//disable default optimization
+			"-p", "jb.cp-ule", "enabled:false",
+			"-p", "jb.uce", "enabled:false",
+			"-p", "jb.ne", "enabled:false",
+			"-p", "jb.ule", "enabled:false",
+			"-p", "jb.dae", "enabled:false",
+			
+			"-p", "jop.cse", "enabled:false",
+			"-p", "jop.nce", "enabled:false",
+			"-p", "jop.dae", "enabled:false",
+			"-p", "jop.uce1", "enabled:false",
+			"-p", "jop.uce2", "enabled:false",
+			"-p", "jop.ule", "enabled:false",
+			
+			"-p", "bb.ule", "enabled:false",
+			"-p", "bb.pho", "enabled:false",
+			"-p", "bb.lso", "enabled:false",
         };
 		
 		G.reset();
@@ -46,6 +63,8 @@ public class SootLauncher extends SceneTransformer
 		
         PackManager.v().getPack("wjtp").add(new Transform("wjtp.apkpler", new SootLauncher(transformer)));
 		
+        //PackManager.v().getPack("jap").add(new Transform("jap.apkpler", new SootLauncher(transformer)));
+        
         soot.Main.main(args2);
 	}
 	
