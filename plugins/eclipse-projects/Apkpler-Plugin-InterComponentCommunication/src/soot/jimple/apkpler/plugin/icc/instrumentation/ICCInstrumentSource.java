@@ -170,7 +170,7 @@ public class ICCInstrumentSource
     	link.getFromSM().retrieveActiveBody().getUnits().insertAfter(redirectCallU, link.getFromU());
     	
     	//remove the real ICC methods call stmt
-    	link.getFromSM().retrieveActiveBody().getUnits().remove(link.getFromU());
+    	//link.getFromSM().retrieveActiveBody().getUnits().remove(link.getFromU());
     	
     	//especially for createChooser method
     	for (Iterator<Unit> iter = units.snapshotIterator(); iter.hasNext(); )

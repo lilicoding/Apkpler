@@ -8,6 +8,22 @@ or is implemented by an independent project but is directly referenced by Apkple
 
 <framework>
 	<plugins>
+	
+		<plugin cls="soot.jimple.apkpler.plugin.ais.AppInfoStatisticPlugin" path="IN-FRAMEWORK" />
+		
+		<plugin cls="soot.jimple.apkpler.plugin.icc.InterComponentCommunicationPlugin" path="IN-FRAMEWORK">
+			res/IPCMethodsConfigFile.txt:res/ICCLinksConfigFile.txt
+		</plugin>
+		
+		<plugin cls="soot.jimple.apkpler.framework.plugin.PrintTransformer" path="IN-FRAMEWORK" />
+		
+	</plugins>
+</framework>
+
+
+<!--  
+<framework>
+	<plugins>
 		<plugin cls="soot.jimple.apkpler.framework.plugin.AppDataCheckPlugin" path="IN-FRAMEWORK">
 			cp1.txt
 		</plugin>
@@ -23,7 +39,10 @@ or is implemented by an independent project but is directly referenced by Apkple
 			cp1.txt:cp2.txt
 		</plugin>
 	</plugins>
-</framework>		
+</framework>	
+-->
+
+		
 		<!--  
 		<plugin cls="soot.jimple.apkpler.framework.plugin.PrintTransformer" path="IN-FRAMEWORK" />
 		-->

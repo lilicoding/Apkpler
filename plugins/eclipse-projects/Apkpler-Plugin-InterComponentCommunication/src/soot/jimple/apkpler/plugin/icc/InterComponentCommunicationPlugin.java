@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import soot.SootMethod;
 import soot.jimple.apkpler.interf.DefaultPlugin;
+import soot.jimple.apkpler.interf.SharedReferences;
 import soot.jimple.apkpler.plugin.icc.instrumentation.ICCRedirectionCreator;
 
 public class InterComponentCommunicationPlugin extends DefaultPlugin 
@@ -38,6 +40,26 @@ public class InterComponentCommunicationPlugin extends DefaultPlugin
 		}
 	}
 	
+	public static boolean isICCMethod(SootMethod method)
+	{
+		String methodName = method.getName();
+		
+		if (methodName.length() < 4)
+		{
+			return false;
+		}
+		
+		for (AndroidMethod am : iccMethods)
+		{
+			if (am.getMethodName().equals(methodName))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	@Override
 	public void sceneTransform() 
 	{
@@ -53,10 +75,13 @@ public class InterComponentCommunicationPlugin extends DefaultPlugin
 		ICCLinksConfigFileParser iccLinksParser = new ICCLinksConfigFileParser(this.iccLinksConfigPath);
 		pkg2links = iccLinksParser.parse();
 		
-		List<ICCLink> links = this.pkg2links.get("lu.uni.serval.icc_startactivity1");
+		String pkgName = (String) SharedReferences.refs.get("PACKAGE-NAME");
+		
+		
+		List<ICCLink> links = this.pkg2links.get(pkgName);
 		
 		for (ICCLink l : links) {
-            ICCRedirectionCreator.v("lu.uni.serval.icc_startactivity1").redirectToDestination(l);
+            ICCRedirectionCreator.v(pkgName).redirectToDestination(l);
         }
 	}
 }
