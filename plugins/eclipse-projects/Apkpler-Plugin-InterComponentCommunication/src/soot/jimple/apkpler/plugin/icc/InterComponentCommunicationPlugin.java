@@ -72,16 +72,26 @@ public class InterComponentCommunicationPlugin extends DefaultPlugin
 			e.printStackTrace();
 		}
 		
-		ICCLinksConfigFileParser iccLinksParser = new ICCLinksConfigFileParser(this.iccLinksConfigPath);
-		pkg2links = iccLinksParser.parse();
+		try
+		{
+			ICCLinksConfigFileParser iccLinksParser = new ICCLinksConfigFileParser(this.iccLinksConfigPath);
+			pkg2links = iccLinksParser.parse();
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
 		
 		String pkgName = (String) SharedReferences.refs.get("PACKAGE-NAME");
-		
-		
 		List<ICCLink> links = this.pkg2links.get(pkgName);
 		
-		for (ICCLink l : links) {
-            ICCRedirectionCreator.v(pkgName).redirectToDestination(l);
-        }
+		//Existing at least one ICC link
+		if (null != links)
+		{
+			for (ICCLink l : links) {
+				ICCRedirectionCreator.v(pkgName).redirectToDestination(l);
+			}
+		}
 	}
 }

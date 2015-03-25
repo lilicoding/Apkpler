@@ -472,7 +472,7 @@ public class ICCRedirectionCreator {
         
         changeParameterType(method, IBINDER_TYPE, binderType);
         
-        Local iLocal1 = lg.generateLocal(NullType.v());
+        Local iLocal1 = lg.generateLocal(RefType.v("java.lang.Object"));
         Unit defaultValueParamU1 = (Unit) Jimple.v().newAssignStmt(iLocal1, NullConstant.v());
         args = new ArrayList<Value>();
         args.add(iLocal1);
