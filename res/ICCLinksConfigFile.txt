@@ -1,5 +1,7 @@
 # Package name: MethodSignature [line-number] DestinationComponent {line-number1,line-number2}
 
+edu.mit.icc_broadcast_programmatic_intentfilter: <edu.mit.icc_broadcast_programmatic_intentfilter.BroadcastTest: void onDestroy()> [8-r] edu.mit.icc_broadcast_programmatic_intentfilter.BroadcastTest$1 {8}
+edu.mit.icc_service_messages: <edu.mit.icc_service_messages.ActivityMessenger: void onStart()> [5-s] edu.mit.icc_service_messages.MessengerService {5}
 lu.uni.serval.icc_bindservice1: <lu.uni.serval.icc_bindservice1.OutFlowActivity: void onCreate(android.os.Bundle)> [11-s] lu.uni.serval.icc_bindservice1.InFlowService {11}
 lu.uni.serval.icc_bindservice2: <lu.uni.serval.icc_bindservice2.OutFlowActivity: void onCreate(android.os.Bundle)> [7-s] lu.uni.serval.icc_bindservice2.InFlowService {7}
 lu.uni.serval.icc_bindservice3: <lu.uni.serval.icc_bindservice3.OutFlowActivity: void onCreate(android.os.Bundle)> [11-s] lu.uni.serval.icc_bindservice3.InFlowService {11}

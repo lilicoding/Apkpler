@@ -24,6 +24,7 @@ import soot.jimple.IdentityStmt;
 import soot.jimple.IntConstant;
 import soot.jimple.InvokeExpr;
 import soot.jimple.Jimple;
+import soot.jimple.NullConstant;
 import soot.jimple.ReturnStmt;
 import soot.jimple.Stmt;
 import soot.jimple.apkpler.plugin.icc.InterComponentCommunicationPlugin;
@@ -158,10 +159,23 @@ public class ICCInstrumentDestination
      */
     public SootField generateIntentFieldForIpc(SootClass compSootClass)
     {
-    	int m = Modifier.PUBLIC | Modifier.STATIC;
-        SootField sf = new SootField(FIELD_INTENT_FOR_IPC, INTENT_TYPE, m);
-        compSootClass.addField(sf);
-        
+    	SootField sf = null;
+    	
+    	try
+    	{
+    		compSootClass.getFieldByName(FIELD_INTENT_FOR_IPC);
+    	}
+    	catch (Exception ex)
+    	{
+    	}
+    	
+    	if (null == sf)
+    	{
+    		int m = Modifier.PUBLIC | Modifier.STATIC;
+            sf = new SootField(FIELD_INTENT_FOR_IPC, INTENT_TYPE, m);
+            compSootClass.addField(sf);
+    	}
+    	
         return sf;
     }
     
@@ -176,19 +190,45 @@ public class ICCInstrumentDestination
      */
     public SootField generateIntentFieldForActivityResult(SootClass compSootClass)
     {
-    	int m = Modifier.PUBLIC | Modifier.STATIC;
-        SootField sf = new SootField(FIELD_INTENT_FOR_ACTIVITY_RESULT, INTENT_TYPE, m);
-        compSootClass.addField(sf);
+    	SootField sf = null;
+    	
+    	try
+    	{
+    		compSootClass.getFieldByName(FIELD_INTENT_FOR_ACTIVITY_RESULT);
+    	}
+    	catch (Exception ex)
+    	{
+    	}
+    	
+    	if (null == sf)
+    	{
+    		int m = Modifier.PUBLIC | Modifier.STATIC;
+    		sf = new SootField(FIELD_INTENT_FOR_ACTIVITY_RESULT, INTENT_TYPE, m);
+    		compSootClass.addField(sf);
+    	}
         
         return sf;
     }
     
     public SootField generateFieldForIBinder(SootClass compSootClass, Type binderType)
     {
-    	int m = Modifier.PUBLIC | Modifier.STATIC;
-        SootField sf = new SootField(FIELD_IBINDER_FOR_IPC, binderType, m);
-        compSootClass.addField(sf);
-        
+    	SootField sf = null;
+    	
+    	try
+    	{
+    		compSootClass.getFieldByName(FIELD_IBINDER_FOR_IPC);
+    	}
+    	catch (Exception ex)
+    	{
+    	}
+    	
+    	if (null == sf)
+    	{
+    		int m = Modifier.PUBLIC | Modifier.STATIC;
+            sf = new SootField(FIELD_IBINDER_FOR_IPC, binderType, m);
+            compSootClass.addField(sf);
+    	}
+    	
         return sf;
     }
     
@@ -223,10 +263,51 @@ public class ICCInstrumentDestination
         Unit intentParameterU = Jimple.v().newIdentityStmt(
                 intentParameterLocal,
                 Jimple.v().newParameterRef(INTENT_TYPE, 0));
+        
+        boolean noDefaultConstructMethod = false;
+        Unit superU = null;
+        try
+        {
+        	superU = (Unit) Jimple.v().newInvokeStmt(
+                Jimple.v().newSpecialInvokeExpr(thisLocal, 
+            		compSootClass.getMethod(name, new ArrayList<Type>(), VoidType.v()).makeRef())
+                    );
+        }
+        catch (Exception ex)
+        {
+        	//It is possible that a class doesn't have a default construct method (<init>()).
+            noDefaultConstructMethod = true;
+        }
+        
+        if (noDefaultConstructMethod)
+        {
+        	List<SootMethod> sootMethods = compSootClass.getMethods();
+        	for (SootMethod sm : sootMethods)
+        	{
+        		if (sm.getName().equals("<init>"))
+        		{
+        			if (sm.getParameterCount() == 1 && sm.getParameterType(0).equals(INTENT_TYPE))
+        			{
+        				continue;
+        			}
+        			
+        			List<Value> args = new ArrayList<Value>();
+        			for (int i = 0; i < sm.getParameterCount(); i++)
+        			{
+        				args.add(NullConstant.v());
+        			}
+        			
+        			superU = (Unit) Jimple.v().newInvokeStmt(Jimple.v().newSpecialInvokeExpr(thisLocal, sm.makeRef(), args));
+        			break;
+        		}
+        	}
+        }
+        /*
         Unit superU = (Unit) Jimple.v().newInvokeStmt(
                 Jimple.v().newSpecialInvokeExpr(thisLocal, 
                 		compSootClass.getMethod(name, new ArrayList<Type>(), VoidType.v()).makeRef())
                         );
+        */
         Unit storeIntentU = Jimple.v().newAssignStmt(
                 Jimple.v().newStaticFieldRef(intentSootField.makeRef()), 
                 intentParameterLocal);

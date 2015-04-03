@@ -477,7 +477,18 @@ public class ICCRedirectionCreator {
         args = new ArrayList<Value>();
         args.add(iLocal1);
         args.add(ibinderLocal);
-        invoke = Jimple.v().newVirtualInvokeExpr(originActivityParameterLocal, method.makeRef(), args);  
+        //invoke = Jimple.v().newVirtualInvokeExpr(originActivityParameterLocal, method.makeRef(), args);
+        
+        SootClass sc = Scene.v().getSootClass(originActivityParameterLocal.getType().toString());
+        if (sc.isInterface())
+        {
+        	invoke = Jimple.v().newInterfaceInvokeExpr(originActivityParameterLocal, method.makeRef(), args);
+        }
+        else
+        {
+        	invoke = Jimple.v().newVirtualInvokeExpr(originActivityParameterLocal, method.makeRef(), args); 
+        }
+        
         Unit onActivityResultCall = (Unit) Jimple.v().newInvokeStmt(invoke);
         
         b.getUnits().add(originActivityParameterU);
